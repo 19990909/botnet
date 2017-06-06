@@ -1,0 +1,10 @@
+##	This file is executed when the bot is in it's initializing phase.
+##	
+##	Variables Available:
+##
+##	$bot - An instance of jgodara.botnet.Bot.BotFacade that represents this bot.
+##			Refer to the class to get an idea about how it works.
+
+#set($props = {"api" : "http://scooterlabs.com/echo"})
+$bot.out("Props are: $props")
+$bot.setProperties($props)

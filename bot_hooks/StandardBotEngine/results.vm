@@ -1,0 +1,11 @@
+##	This file is executed when the bot has done it's work.
+##	
+##	Variables Available:
+##
+##	$bot - An instance of jgodara.botnet.Bot.BotFacade that represents this bot.
+##			Refer to the class to get an idea about how it works.
+
+
+Results of $bot.name()
+
+$bot.results()

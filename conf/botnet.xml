@@ -1,0 +1,43 @@
+<Botnet>
+	<!-- Listener that logs Botnet Server Info on server startup -->
+	<Listener class="jgodara.botnet.startup.ServerInfoLogListener" />
+	
+	<!-- A Botnet service.
+			A Botnet Server may contain any number of services.
+			Botnet Service: Name Implies what it is. 
+			
+			The parameters are explained as:-
+			Parameter:: Purpose | Default Value
+			
+			name::** The Unique name of a Botnet service
+			class:: The class to be used as the Botnet service (must implement jgodara.botnet.Service)
+						| jgodara.botnet.core.StandardService -->
+	<Srvc name="BotNet1">
+		
+		<!-- The Botnet engine.
+				The engine has the responsibility of handling bots.
+				It creates the bot, and manages them in a separate thread
+				so that it does not roast your computer.
+				
+				The engine has some parameters, which are given as:-
+				Parameter:: Purpose | Default Value
+				
+				name::** This required parameter gives the Botnet engine a recognizable name.
+				
+				class:: The class to be used as Botnet engine (must implement jgodara.botnet.Engine) 
+								| jgodara.botnet.core.StandardEngine
+								
+				bots:: This parameter tell the number of bots the engine should create | 25
+				
+				botnamepattern:: This parameter gives each bot a unique id. | BOT-%id%
+				 
+				facade:: A facade is the class that configures a bot (must implement jgodara.botnet.Bot.BotFacade). 
+							| jgodara.botnet.core.StandardBotFacade -->
+		<Engine name="StandardBotEngine" bots="2" botnamepattern="BOT%id%">
+		
+			<!-- Listener that exposes bot functionality via Velocity Template Engine 
+				and allows customization when some event occurs -->
+			<Listener class="jgodara.botnet.listeners.VelocityEventListener" />
+		</Engine>
+	</Srvc>
+</Botnet>
